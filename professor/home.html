@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratórios Disponíveis | Agenda de Laboratórios</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img src="../logo.jpg" alt="Logo">
+                <span>Agenda de Laboratórios</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="home.html" class="active">Laboratórios</a></li>
+                    <li><a href="minhas-reservas.html">Minhas Reservas</a></li>
+                    <li><a href="../index.html">Voltar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="card">
+                <h1>Laboratórios Disponíveis</h1>
+                <p>Selecione um laboratório para verificar disponibilidade e fazer uma reserva:</p>
+                
+                <div id="labs-container" class="labs-grid">
+                    <!-- Os laboratórios serão inseridos aqui via JavaScript -->
+                    <div class="loading">Carregando laboratórios...</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Sistema de Agenda de Laboratórios</p>
+        </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/professor/home.js"></script>
+</body>
+</html>

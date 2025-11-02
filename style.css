@@ -1,0 +1,1056 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7fb;
+  color: #333;
+}
+
+.container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.main-content-horarios {
+  padding: 20px;
+  max-width: 600px; /* Ou a largura que você desejar para comportar 4 colunas */
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #0056b3;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.logo-img {
+  height: 90px;
+  border-radius: 50%;
+}
+
+.banner-img {
+  height: 90px; /* Mantém a altura desejada */
+  max-width: 100%; /* Garante que a imagem nunca será maior que o seu contêiner */
+  display: block;
+  margin: 0 auto; /* Centraliza a imagem horizontalmente */
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.menu-button {
+  width: 100%;
+  padding: 16px;
+  margin: 10px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  gap: 10px;
+}
+
+.menu-button:hover {
+  background-color: #003f8a;
+}
+
+.menu-button .chevron {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+.menu-button.active .chevron {
+  transform: rotate(90deg);
+}
+
+.sub-options {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+  padding-left: 10px;
+}
+
+.sub-options.show {
+  max-height: 1000px;
+  margin-bottom: 10px;
+}
+
+.sub-options a {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  background-color: #e0e8f0;
+  color: #333;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  text-align: left;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.sub-options a:hover {
+  background-color: #d0d8e0;
+}
+
+@media (max-width: 480px) {
+  .menu-button {
+    font-size: 1rem;
+    padding: 14px;
+  }
+
+  .header h1 {
+    font-size: 1.2rem;
+  }
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 4px;
+  text-align: left;
+}
+
+.address {
+  font-size: 0.8rem;
+  font-style: italic;
+  text-align: left;
+  margin-top: 2px;
+  color: #e0e0e0;
+}
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 16px;
+  background-color: #499b3e;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #003f8a;
+}
+
+.back-button i {
+  margin-right: 8px;
+}
+
+/* Vagas em cards com grid */
+#vagas-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.vaga-card {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.vaga-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.vaga-card p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.vaga-card {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0056b3;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.vaga-card :hover {
+  text-decoration: underline;
+}
+
+.ver-mais {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ver-mais:hover {
+  background-color: #004091;
+}
+
+
+@media (max-width: 480px) {
+  .menu-button {
+    font-size: 1rem;
+    padding: 14px;
+  }
+
+  .header h1 {
+    font-size: 1.2rem;
+  }
+}
+
+.input-busca {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  margin: 10px auto 20px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+#carregar-mais-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+#carregar-mais-btn {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#carregar-mais-btn:hover {
+  background-color: #003f8a;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 60px auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.modal-content h3 {
+  margin-bottom: 10px;
+}
+
+.modal-content .modal-data {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.modal-content .fechar {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+}
+
+.modal-content .fechar:hover {
+  color: #333;
+}
+
+.vaga-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.vaga-texto {
+  flex: 1;
+}
+
+.vaga-imagem {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.busca-wrapper {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto 20px auto;
+}
+
+.busca-wrapper i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 1rem;
+}
+
+#busca-vagas {
+  width: 100%;
+  padding: 10px 10px 10px 36px; /* espaço à esquerda para a lupa */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.topo-pagina {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 0 0 20px;
+}
+
+.btn-voltar {
+  background-color: transparent;
+  color: #0056b3;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease;
+}
+
+.btn-voltar:hover {
+  color: #003f8a;
+}
+
+/* Seletor de mês */
+.mes-selector {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px auto;
+}
+
+.mes-btn {
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mes-btn:hover,
+.mes-btn.active {
+  background-color: #003f8a;
+}
+
+/* Calendário visual */
+#calendario-container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.calendario-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.dia-cabecalho {
+  font-weight: bold;
+  text-align: center;
+  color: #0056b3;
+  font-size: 0.9rem;
+}
+
+.dia {
+  padding: 12px;
+  text-align: center;
+  border-radius: 6px;
+  background-color: #f4f7fb;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 2; /* Adicione isso para garantir que fique acima do grid */
+}
+
+.dia.evento {
+  background-color: #dbeaff;
+  font-weight: bold;
+  color: #003f8a;
+  cursor: pointer;
+}
+
+.dia.evento:hover::after {
+  content: attr(data-evento);
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0056b3;
+  color: white;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.dia.evento::after {
+  content: attr(data-evento);
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  z-index: 9999; /* <-- Aumentar aqui */
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+/* Lista de eventos por mês */
+#lista-eventos-container {
+  max-width: 800px;
+  margin: 30px auto 40px;
+}
+
+.eventos-mes {
+  margin-bottom: 30px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.eventos-mes h3 {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  color: #0056b3;
+}
+
+.eventos-mes ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.eventos-mes li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .calendario-grid {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+
+  .mes-btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    
+  }
+}
+
+/* Estilo base para dias com evento */
+.evento {
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid transparent;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.evento:hover {
+  transform: scale(1.05);
+}
+
+/* Tipo: feriado */
+.evento-feriado {
+  background-color: #ffe5e5;
+  color: #b30000;
+  border-color: #ffcccc;
+}
+
+/* Tipo: prova */
+.evento-prova {
+  background-color: #e0ecff;
+  color: #004ba0;
+  border-color: #b3d1ff;
+}
+
+/* Tipo: aula */
+.evento-aula {
+  background-color: #e4ffd9;
+  color: #2e7d32;
+  border-color: #b3ffb3;
+}
+
+/* Tipo: evento geral */
+.evento-evento {
+  background-color: #fff8dc;
+  color: #8c6d1f;
+  border-color: #ffe99e;
+}
+
+/* Tipo: exame */
+.evento-exame {
+  background-color: #f3e5ff;
+  color: #6a1b9a;
+  border-color: #d1b3ff;
+}
+
+.calendario-grid {
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+}
+
+
+.mes-btn {
+  min-width: 120px;
+  max-width: 120px;
+  height: 40px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* Estilo para o contêiner de pesquisa no horarioaulas.html */
+.search-container {
+  position: relative;
+  max-width: 400px; /* Alinha com o max-width de .input-busca ou .busca-vagas */
+  margin: 20px auto; /* Centraliza e adiciona margem */
+}
+
+.search-container .search-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 1rem;
+}
+
+/* Estilo para o campo de pesquisa (input) */
+#searchInput {
+  width: 100%;
+  padding: 12px 12px 12px 36px; /* Aumenta o padding esquerdo para o ícone */
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Padrão de borda arredondada */
+  font-size: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidade */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#searchInput:focus {
+  border-color: #0056b3; /* Cor da borda ao focar, similar aos botões */
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.2); /* Efeito de foco suave */
+  outline: none; /* Remove o contorno padrão do navegador */
+}
+
+/* Estilo para o contêiner dos filtros (selects) */
+/* Estilo para o contêiner dos filtros (selects) */
+.filters {
+  display: grid; /* Mude para grid */
+  /* Crie 4 colunas de largura igual. O 'minmax' garante que elas não fiquem muito pequenas */
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Ajustado para 4 colunas */
+  gap: 15px; /* Espaçamento entre os selects */
+  justify-content: center; /* Centraliza os filtros */
+  margin-top: 20px;
+  margin-bottom: 30px;
+  max-width: 960px; /* Adicione um max-width para o contêiner principal dos filtros para controlá-los melhor */
+  margin-left: auto; /* Centraliza o contêiner de filtros */
+  margin-right: auto;
+}
+
+/* Mantenha o estilo para .filter-select como está, ou ajuste se necessário */
+.filter-select {
+  /* Remova o flex: 1 se você adicionou em alguma outra parte, pois agora o grid gerencia o tamanho */
+  /* flex: 1; */
+  /* min-width: 180px;  Pode ser necessário reduzir este valor ou deixar o grid gerenciar totalmente */
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fff;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%20viewBox%3D%220%200%20292.4%20292.4%22%3E%3Cpath%20fill%3D%22%230056b3%22%20d%3D%22M287%20197.3l-13.9-13.9c-1-1-2.6-1.4-4.1-1.4s-3.1.4-4.1%201.4L146.2%20272.9%2035.5%20162.2c-1-1-2.6-1.4-4.1-1.4s-3.1.4-4.1%201.4L13.4%20176.1c-1%201-1.4%202.6-1.4%204.1s.4%203.1%201.4%204.1l128.7%20128.7c1%201%202.6%201.4%204.1%201.4s3.1-.4%204.1-1.4l128.7-128.7c1-1%201.4-2.6%201.4-4.1s-.4-3.1-1.4-4.1z%22%2F%3E%3C\/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  padding-right: 30px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-select:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.2);
+  outline: none;
+}
+
+/* Ajuste a media query para telas menores, se necessário */
+@media (max-width: 900px) { /* Exemplo: acima de 900px mostra 4, abaixo mostra menos */
+  .filters {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* 3 ou 2 colunas */
+  }
+}
+
+@media (max-width: 600px) {
+  .filters {
+    grid-template-columns: 1fr; /* Volta para 1 coluna em telas muito pequenas */
+    gap: 10px;
+  }
+}
+
+/* Cards de Aulas (Mais Compactos) */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    /* REMOVA OU COMENTE A LINHA ABAIXO */
+    /* padding: 20px 0; */
+    justify-content: center;
+}
+
+/* Garantir espaçamento consistente em telas pequenas */
+@media (max-width: 768px) { /* ou 600px, dependendo do seu breakpoint */
+    .container,
+    .hero-section,
+    .filter-section,
+    .class-schedule {
+        padding-left: 20px; /* Ou 15px, se preferir um espaçamento menor */
+        padding-right: 20px;
+    }
+
+    /* Se os cards ainda estiverem colados, adicione/ajuste isto */
+    .cards-grid {
+        /* Permite que o grid use o padding do pai */
+        margin-left: 0;
+        margin-right: 0;
+        width: auto; /* Garante que não force 100% da largura do viewport */
+    }
+
+    /* Se os filtros ainda estiverem colados, adicione/ajuste isto */
+    .filter-group {
+         /* Permite que o grupo de filtro use o padding do pai */
+         margin-left: 0;
+         margin-right: 0;
+         width: auto; /* Garante que não force 100% da largura do viewport */
+         min-width: unset; /* Permite que o flex item encolha mais se necessário */
+    }
+}
+
+.class-card {
+  background-color: #fff;
+  padding: 15px; /* Reduzir o padding interno */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Reduzir o espaçamento entre os elementos dentro do card */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.class-card:hover {
+  transform: translateY(-3px); /* Movimento de hover mais sutil */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12); /* Sombra um pouco menor no hover */
+}
+
+.class-card h3 {
+  font-size: 1.1rem; /* Fonte do título um pouco menor */
+  color: #0056b3;
+  margin-bottom: 3px; /* Reduzir margem inferior */
+}
+
+.class-card p {
+  font-size: 0.88rem; /* Fonte dos parágrafos um pouco menor */
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Reduzir espaçamento entre ícone e texto */
+  line-height: 1.3; /* Ajustar a altura da linha se necessário */
+}
+
+.class-card p i {
+  color: #0056b3;
+  font-size: 0.9rem; /* Ícone um pouco menor */
+}
+
+/* Mensagem de "nenhum resultado" */
+.no-results {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1.1rem;
+  color: #777;
+}
+
+/* Responsividade para filtros em telas menores */
+@media (max-width: 600px) {
+  .filters {
+    flex-direction: column; /* Empilha os selects verticalmente */
+    gap: 10px;
+  }
+
+  .filter-select {
+    min-width: unset; /* Remove largura mínima para se ajustar ao pai */
+    width: 100%;
+  }
+
+  .search-container {
+    padding: 0 10px; /* Adiciona padding nas laterais em telas pequenas */
+  }
+}
+
+/* --- Estilos para a Tela de Coordenadores --- */
+
+/* Grid para os cards dos coordenadores */
+.coordinators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colunas flexíveis */
+    gap: 25px; /* Espaçamento entre os cards */
+    padding: 20px 0; /* Padding vertical, horizontal já vem do .container */
+    justify-content: center; /* Centraliza os cards no grid */
+    align-items: start; /* Alinha os cards ao topo */
+}
+
+/* Estilo individual do card do coordenador */
+.coordinator-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Organiza conteúdo verticalmente */
+    align-items: center; /* Centraliza itens horizontalmente no card */
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    min-height: 280px; /* Garante uma altura mínima para consistência */
+}
+
+.coordinator-card .contact-details p {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha o conteúdo (ícone + texto) ao início da linha (esquerda) */
+    gap: 8px;
+    line-height: 1.4;
+    text-align: left; /* Garante que o texto dentro do parágrafo seja alinhado à esquerda */
+}
+
+.coordinator-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.coordinator-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Torna a imagem circular */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    margin-bottom: 15px;
+    border: 3px solid #0056b3; /* Borda ao redor da foto */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.coordinator-info h3 {
+    font-size: 1.4rem;
+    color: #0056b3;
+    margin-bottom: 5px;
+}
+
+.coordinator-role {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.contact-details p {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o texto de contato */
+    gap: 8px; /* Espaçamento entre ícone e texto */
+    line-height: 1.4;
+}
+
+.contact-details p i {
+    color: #0056b3; /* Cor dos ícones */
+    font-size: 1rem;
+}
+
+.contact-details a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .coordinators-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+        gap: 20px;
+    }
+
+    .coordinator-card {
+        padding: 15px;
+    }
+
+    .coordinator-photo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .coordinator-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .coordinator-role, .contact-details p {
+        font-size: 0.85rem;
+    }
+}
+
+/* No seu style.css, adicione/ajuste os estilos */
+
+/* Grid para os setores */
+.sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px; /* Espaçamento do filtro/busca */
+}
+
+/* Estilo individual do card do setor */
+.sector-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.sector-card:hover {
+    transform: translateY(-5px);
+}
+
+.sector-logo { /* Se usar uma logo para o setor */
+    width: 80px;
+    height: 80px;
+    object-fit: contain; /* Para logos, 'contain' é melhor que 'cover' */
+    margin-bottom: 15px;
+    border-radius: 50%; /* Se a logo for circular */
+}
+
+.sector-card h3 {
+    font-size: 1.3rem;
+    color: #0056b3;
+    margin-bottom: 8px;
+}
+
+.sector-card .sector-info p,
+.sector-card .contact-details p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinhado à esquerda como nos coordenadores */
+    gap: 8px;
+    line-height: 1.4;
+    text-align: left; /* Garante que o texto seja alinhado à esquerda */
+    width: 100%; /* Para que o alinhamento esquerdo funcione bem */
+}
+
+.sector-card .sector-info p i,
+.sector-card .contact-details p i {
+    color: #0056b3;
+    font-size: 1rem;
+}
+
+.sector-card .contact-details a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Ajustes para a seção de filtro se necessário (já existentes ou pequenos ajustes) */
+.filter-section {
+    padding: 15px;
+}
+
+.filter-select {
+    width: 100%;
+}
+
+/* --- Estilos para a Tela de Localização --- */
+
+.location-actions {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas menores */
+  gap: 15px; /* Espaçamento entre os botões */
+  justify-content: center; /* Centraliza os botões */
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.action-button {
+  flex: 1; /* Permite que os botões se expandam */
+  min-width: 250px; /* Largura mínima para os botões */
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none; /* Remove sublinhado dos links */
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  display: flex; /* Para alinhar ícone e texto */
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Espaçamento entre ícone e texto */
+}
+
+.action-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Cores específicas para os botões */
+.google-maps-button {
+  background-color: #4285F4; /* Azul do Google Maps */
+}
+
+.google-maps-button:hover {
+  background-color: #357ae8;
+}
+
+.uber-button {
+  background-color: #000; /* Preto do Uber */
+}
+
+.uber-button:hover {
+  background-color: #333;
+}
+
+/* Contêiner do mapa */
+.map-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px; /* Espaçamento inferior */
+  text-align: center; /* Centraliza o título */
+}
+
+.map-container h3 {
+  font-size: 1.4rem;
+  color: #0056b3;
+  margin-bottom: 20px;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+  .location-actions {
+    flex-direction: column; /* Empilha os botões verticalmente */
+  }
+
+  .action-button {
+    min-width: unset; /* Remove largura mínima para se ajustar ao pai */
+    width: 100%;
+  }
+
+  .map-container {
+    padding: 15px;
+  }
+}

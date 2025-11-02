@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Laboratório | Agenda de Laboratórios</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .calendario {
+            margin: 20px 0;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .calendario-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #1e293b;
+        }
+        
+        .calendario-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background-color: #334155;
+        }
+        
+        .calendario-dia {
+            background-color: #1e293b;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .calendario-dia:hover {
+            background-color: #22d3ee;
+            color: #0f172a;
+        }
+        
+        .calendario-dia.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .calendario-dia.selected {
+            background-color: #22d3ee;
+            color: #0f172a;
+            font-weight: bold;
+        }
+        
+        .calendario-dia.hoje {
+            border: 2px solid #22d3ee;
+        }
+        
+        .calendario-dia-nome {
+            background-color: #0f172a;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .horarios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .horario-item {
+            padding: 10px;
+            text-align: center;
+            background-color: #1e293b;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .horario-item:hover {
+            background-color: #22d3ee;
+            color: #0f172a;
+        }
+        
+        .horario-item.selected {
+            background-color: #22d3ee;
+            color: #0f172a;
+            font-weight: bold;
+        }
+        
+        .horario-item.indisponivel {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background-color: #ef4444;
+        }
+        
+        .horario-item.bloqueado {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background-color: #f59e0b;
+        }
+        
+        .form-reserva {
+            margin-top: 30px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img src="../logo.jpg" alt="Logo">
+                <span>Agenda de Laboratórios</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Laboratórios</a></li>
+                    <li><a href="minhas-reservas.html">Minhas Reservas</a></li>
+                    <li><a href="../index.html">Voltar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="card">
+                <h1 id="lab-titulo">Carregando laboratório...</h1>
+                <p id="lab-descricao"></p>
+                
+                <div class="calendario">
+                    <div class="calendario-header">
+                        <button id="mes-anterior" class="btn">&lt; Anterior</button>
+                        <h2 id="mes-atual">Mês Atual</h2>
+                        <button id="mes-proximo" class="btn">Próximo &gt;</button>
+                    </div>
+                    
+                    <div class="calendario-grid">
+                        <div class="calendario-dia-nome">Dom</div>
+                        <div class="calendario-dia-nome">Seg</div>
+                        <div class="calendario-dia-nome">Ter</div>
+                        <div class="calendario-dia-nome">Qua</div>
+                        <div class="calendario-dia-nome">Qui</div>
+                        <div class="calendario-dia-nome">Sex</div>
+                        <div class="calendario-dia-nome">Sáb</div>
+                        <!-- Os dias serão inseridos aqui via JavaScript -->
+                    </div>
+                </div>
+                
+                <div id="horarios-container" style="display: none;">
+                    <h2>Horários Disponíveis</h2>
+                    <p>Selecione um horário para iniciar sua reserva:</p>
+                    
+                    <div class="horarios-grid" id="horarios-grid">
+                        <!-- Os horários serão inseridos aqui via JavaScript -->
+                    </div>
+                </div>
+                
+                <div id="form-reserva" class="form-reserva" style="display: none;">
+                    <h2>Formulário de Reserva</h2>
+                    <form id="reserva-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo*</label>
+                                <input type="text" id="nome" class="input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="telefone">Telefone* (formato: 34 9 9999-9999)</label>
+                                <input type="tel" id="telefone" class="input" pattern="\d{2}\s9\s\d{4}-\d{4}" placeholder="34 9 9999-9999" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="data">Data Selecionada</label>
+                                <input type="text" id="data" class="input" readonly>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="horario">Horário de Início</label>
+                                <input type="text" id="horario" class="input" readonly>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="duracao">Duração (minutos)*</label>
+                                <select id="duracao" class="input" required>
+                                    <option value="30">30 minutos</option>
+                                    <option value="60">1 hora</option>
+                                    <option value="90">1 hora e 30 minutos</option>
+                                    <option value="120">2 horas</option>
+                                    <option value="150">2 horas e 30 minutos</option>
+                                    <option value="180">3 horas</option>
+                                    <option value="210">3 horas e 30 minutos</option>
+                                    <option value="240">4 horas</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="curso">Curso (opcional)</label>
+                                <input type="text" id="curso" class="input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="turma">Turma (opcional)</label>
+                                <input type="text" id="turma" class="input">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="observacao">Observação (opcional)</label>
+                            <textarea id="observacao" class="input" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn">Solicitar Reserva</button>
+                            <button type="button" id="btn-cancelar" class="btn btn-danger">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Sistema de Agenda de Laboratórios</p>
+        </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/professor/lab.js"></script>
+</body>
+</html>
